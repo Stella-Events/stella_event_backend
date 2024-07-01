@@ -1,4 +1,6 @@
 import express from 'express';
+import 'dotenv/config'
+import { dbconnection } from './config/db.js';
 
 
 
@@ -7,8 +9,8 @@ import express from 'express';
 const app = express();
 app.use(express.json())
 
-
-
+// connecting o database
+dbconnection()
 
 
 
@@ -18,5 +20,5 @@ app.use(express.json())
 
  const port = 4040
  app.listen(port, () =>{
-    console.log(`lisening to port ${port}`)
+    console.log(`listening to port ${port}`)
  })
