@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-
+// Creating a router app
 const eventRouter = Router()
 
 eventRouter.post('/events', );
