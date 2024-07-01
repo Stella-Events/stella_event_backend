@@ -1,4 +1,6 @@
 import express from 'express';
+import 'dotenv/config'
+import { dbconnection } from './config/db.js';
 
 
 
@@ -6,8 +8,8 @@ import express from 'express';
 // creating an express APP
  const app = express();
 
-
-
+// connecting o database
+dbconnection()
 
 
 
