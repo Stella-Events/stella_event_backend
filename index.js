@@ -19,5 +19,5 @@ dbconnection()
 
  const port = 4040
  app.listen(port, () =>{
-    console.log(`lisening to port ${port}`)
+    console.log(`listening to port ${port}`)
  })
