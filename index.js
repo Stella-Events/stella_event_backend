@@ -7,6 +7,8 @@ import { dbconnection } from './config/db.js';
 
 // creating an express APP
 const app = express();
+
+// applying middleware
 app.use(express.json())
 
 // connecting o database
