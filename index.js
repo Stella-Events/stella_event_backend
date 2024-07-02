@@ -1,6 +1,7 @@
-import express from 'express';
+import express, { Router } from 'express';
 import 'dotenv/config'
 import { dbconnection } from './config/db.js';
+import eventRouter from './routes/event.js';
 
 
 
@@ -16,7 +17,7 @@ dbconnection()
 
 
 
-
+app.use(eventRouter)
 
  // listening to port
 
