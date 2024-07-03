@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { getCategories, postCategories } from "../controllers/cat_controller";
-import { localUploads } from "../middleware/uploads";
+import { getCategories, postCategories } from "../controllers/cat_controller.js";
+import { localUploads } from "../middleware/uploads.js";
 
 // Create a router
 const categoryRouter = Router();
