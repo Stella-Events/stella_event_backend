@@ -1,13 +1,14 @@
 import { Router } from "express";
-import { getCategories, postCategories } from "../controllers/cat_controller";
-import { remoteUploads } from "../middleware/uploads";
+import { getCategories, postCategories } from "../controllers/cat_controller.js";
+import { remoteUploads } from "../middleware/uploads.js";
 
 // Create a router
 const categoryRouter = Router();
 
 // Define routes
-categoryRouter.post('/categories', remoteUploads.single('image'), postCategories);
 categoryRouter.get('/categories', getCategories);
+categoryRouter.post('/categories', remoteUploads.single('image'), postCategories);
+
 
 
 // Export router
