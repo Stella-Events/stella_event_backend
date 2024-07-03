@@ -10,11 +10,11 @@ export const getCategories = async (req,res,res) => {
       .select(fields ? JSON.parse(fields) : '')
       .limit(limit ? parseInt(limit) : undefined)
       .skip(skip ? parseInt(skip) : undefined);
-      res.json(allcategories);
+      res.json(getCategories);
   } catch (error) {
     next(error)
   }
-  
+
   }
 
   // creating a post category
