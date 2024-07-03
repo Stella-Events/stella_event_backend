@@ -1,6 +1,7 @@
 import express, { Router } from 'express';
 import 'dotenv/config'
 import { dbconnection } from './config/db.js';
+import categoryRouter from './routes/category.js';
 import eventRouter from './routes/event.js';
 import categoryRouter from './routes/category.js';
 import expressOasGenerator from 'express-oas-generator'
@@ -22,13 +23,9 @@ expressOasGenerator.handleResponses(app, {
 });
 
 // applying middleware
-app.use(express.json());
-app.use(cors());
-
-
-// use routes
-app.use(eventRouter);
-app.use(categoryRouter);
+app.use(express.json())
+app.use(eventRouter)
+app.use(categoryRouter)
 
 expressOasGenerator.handleRequests();
 app.use((req, res) => res.redirect('/api-docs/'));

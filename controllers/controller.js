@@ -5,6 +5,7 @@ export const getEvent = async (req,res,next) => {
 
 try {
   // Creating the query
+  const { limit, skip, filter, fields} = req.query;
       const getEvents = await EventModel
       .find(filter ? JSON.parse(filter) : {})
       .select(fields ? JSON.parse(fields) : '')
