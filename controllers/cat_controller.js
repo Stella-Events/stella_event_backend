@@ -3,8 +3,9 @@ import { CategoryModel } from "../model/category.js";
 
 
 // creating a get category
-export const getCategories = async (req,res,res) => {
+export const getCategories = async (req,res,next) => {
   try {
+    const { limit, skip, filter, fields} = req.query;
       const getCategory = await CategoryModel
       .find(filter ? JSON.parse(filter) : {})
       .select(fields ? JSON.parse(fields) : '')
