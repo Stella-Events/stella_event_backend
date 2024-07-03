@@ -1,13 +1,14 @@
 import { Router } from "express";
+import { getCategories, postCategories } from "../controllers/cat_controller";
+import { localUploads } from "../middleware/uploads";
 
-
+// Create a router
 const categoryRouter = Router();
 
-categoryRouter.post('/categories', );
-categoryRouter.get('/categories', );
-categoryRouter.get('/categories/:id', );
-categoryRouter.patch('/categories/:id',  );
-categoryRouter.delete('/categories/:id', );
+// Define routes
+categoryRouter.post('/categories', localUploads.single('image'), postCategories);
+categoryRouter.get('/categories', getCategories);
 
 
+// Export router
 export default categoryRouter;
