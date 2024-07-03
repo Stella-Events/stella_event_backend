@@ -1,12 +1,17 @@
 import { EventModel } from "../model/event.js"
-import { localUploads } from "../middleware/uploads.js"
 
 // Creating a get event
 export const getEvent = async (req,res,next) => {
 
 try {
-      const getEvents = await EventModel.find({})
-      res.json(getEvents)
+  // Creating the query
+      const getEvents = await EventModel
+      .find(filter ? JSON.parse(filter) : {})
+      .select(fields ? JSON.parse(fields) : '')
+      .limit(limit ? parseInt(limit) : 10)
+      .skip(skip ? parseInt(skip) : 0);
+  // return all recipe response
+      res.status(201).json(getEvents)
 } catch (error) {
     next(error)
 }
@@ -19,7 +24,7 @@ export const postEvent = async (req,res) => {
  // uploading a file
         const postEvents = await EventModel.create({
       ...req.body,
-      flierUrl: req.file.filename
+      image: req.file.filename
 
         })
         res.status(201).json(postEvents)
@@ -61,7 +66,7 @@ export const patchEvent = async (req,res,next) => {
         // delete recipe by id
         const deletedEvents = await EventModel.findByIdAndDelete(req.params.id);
         // return response
-        res.json(deletedEvents)
+        res.status(201).json(deletedEvents)
     } catch (error) {
         next(error)
     }
