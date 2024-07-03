@@ -25,7 +25,7 @@ export const getCategories = async (req,res,res) => {
             ...req.body,
             image: req.file.filename
           });
-          // retuern the response
+          // return the response
           res.status(201).json()
     } catch (error) {
         next(error)
