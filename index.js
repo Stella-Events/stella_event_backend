@@ -4,12 +4,14 @@ import { dbconnection } from './config/db.js';
 import eventRouter from './routes/event.js';
 import expressOasGenerator from 'express-oas-generator'
 import mongoose from 'mongoose';
+import cors from "cors"
 
 
 
 
 // creating an express app
 const app = express();
+
 
 // Documentation
 expressOasGenerator.handleResponses(app, {
@@ -19,7 +21,8 @@ expressOasGenerator.handleResponses(app, {
 });
 
 // applying middleware
-app.use(express.json())
+app.use(express.json());
+app.use(cors());
 
 
 expressOasGenerator.handleRequests();
