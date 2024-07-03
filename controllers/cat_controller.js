@@ -10,7 +10,7 @@ export const getCategories = async (req,res,res) => {
       .select(fields ? JSON.parse(fields) : '')
       .limit(limit ? parseInt(limit) : undefined)
       .skip(skip ? parseInt(skip) : undefined);
-      res.json(getCategories);
+      res.status(200).json(getCategory);
   } catch (error) {
     next(error)
   }
@@ -26,7 +26,7 @@ export const getCategories = async (req,res,res) => {
             image: req.file.filename
           });
           // retuern the response
-          res.status(201).json()
+          res.status(201).json(postCategory)
     } catch (error) {
         next(error)
     }

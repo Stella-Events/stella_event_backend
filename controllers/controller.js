@@ -4,7 +4,13 @@ import { EventModel } from "../model/event.js"
 export const getEvent = async (req,res,next) => {
 
 try {
-      const getEvents = await EventModel.find({})
+  // Creating the query
+      const getEvents = await EventModel
+      .find(filter ? JSON.parse(filter) : {})
+      .select(fields ? JSON.parse(fields) : '')
+      .limit(limit ? parseInt(limit) : 10)
+      .skip(skip ? parseInt(skip) : 0);
+  // return all recipe response
       res.status(201).json(getEvents)
 } catch (error) {
     next(error)
