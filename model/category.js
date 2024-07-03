@@ -2,7 +2,7 @@ import {Schema, model } from "mongoose";
 import {toJSON} from "@reis/mongoose-to-json";
 
 const categorySchema = new Schema({
-    eventType:{type:String, enum:['wedding', 'conference', 'concert']},
+    eventType:{type:String, enum:['wedding', 'conference', 'concert','birthday']},
     description:{type:String},
     image:{type:String},
     
