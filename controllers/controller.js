@@ -12,7 +12,7 @@ try {
       .limit(limit ? parseInt(limit) : 10)
       .skip(skip ? parseInt(skip) : 0);
   // return all recipe response
-      res.status(201).json(getEvents)
+      res.status(200).json(getEvents)
 } catch (error) {
     next(error)
 }
@@ -28,7 +28,7 @@ export const postEvent = async (req,res) => {
       image: req.file.filename
 
         })
-        res.status(200).json(postEvents)
+        res.status(201).json(postEvents)
     } catch (error) {
         
     }
