@@ -52,7 +52,8 @@ export const patchEvent = async (req,res,next) => {
     try {
  
      // update recipe by Id
-     const updateEvent = await EventModel.findByIdAndUpdate(req.params.id,req.body,{new:true})
+     const Name =req.body.name;
+     const updateEvent = await EventModel.findByIdAndUpdate(req.params.id,req.body,{new:true},{name:Name})
      // return response
       res.status(201).json(updateEvent)
     } catch (error) {

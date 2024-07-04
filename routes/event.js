@@ -16,3 +16,6 @@ eventRouter.delete('/events/:id', deleteEvent );
 
 // Export router
 export default eventRouter;
+
+
+//http://localhost:4040/events?filer={"date":{"$gte":"2024-09-19", "$lte":"2024-03-02"

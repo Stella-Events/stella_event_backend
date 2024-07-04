@@ -8,11 +8,11 @@ const eventSchema = new Schema({
     name:{type:String},
     categoryId:{type: Types.ObjectId, ref: 'Category'},
     date:{type:Date},
-    duration:{type: String},
+    time:{type: String},
     price:{type:Number},
-    tickets: [{ type: String }],
+    tickets: { type: String },
     location:{type:String},
-    image:{type:String}
+    image:{type:String }
 },{
     timestamps:true
 });
