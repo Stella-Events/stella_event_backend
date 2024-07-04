@@ -34,10 +34,7 @@ dbconnection()
 
 
 
-app.use(eventRouter)
-
  // listening to port
-
  const port = 4040
  app.listen(port, () =>{
     console.log(`listening to port ${port}`)
