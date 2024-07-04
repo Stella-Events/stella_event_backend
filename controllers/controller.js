@@ -28,7 +28,7 @@ export const postEvent = async (req,res) => {
       image: req.file.filename
 
         })
-        res.status(201).json(postEvents)
+        res.status(200).json(postEvents)
     } catch (error) {
         
     }
@@ -39,7 +39,7 @@ export const postEvent = async (req,res) => {
 export const getEventId = async (req,res,next) => {
   try {
       const getEventsId = await EventModel.findById(req.params.id);
-      res.status(201).json(getEventsId)
+      res.status(200).json(getEventsId)
 
   } catch (error) {
     next(error)
@@ -55,7 +55,7 @@ export const patchEvent = async (req,res,next) => {
      const Name =req.body.name;
      const updateEvent = await EventModel.findByIdAndUpdate(req.params.id,req.body,{new:true},{name:Name})
      // return response
-      res.status(201).json(updateEvent)
+      res.status(200).json(updateEvent)
     } catch (error) {
      next(error)
     }
@@ -68,7 +68,7 @@ export const patchEvent = async (req,res,next) => {
         // delete recipe by id
         const deletedEvents = await EventModel.findByIdAndDelete(req.params.id);
         // return response
-        res.status(201).json(deletedEvents)
+        res.status(200).json(deletedEvents)
     } catch (error) {
         next(error)
     }
